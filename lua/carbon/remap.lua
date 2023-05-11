@@ -23,9 +23,13 @@ local leaderCommands = {
   h  = function ()
     vim.cmd("noh")
   end,
-  con = function ()
+  ewc= function ()
     vim.cmd(":split")
     vim.cmd(":edit C:/Users/Carbon/AppData/Local/nvim/")
+  end,
+  elc = function ()
+    vim.cmd(":split")
+    vim.cmd(":edit ~/.config/nvim/")
   end,
   ev = function ()
     vim.cmd(":vsplit")
@@ -53,6 +57,8 @@ for k, v in pairs(leaderCommands) do
   vim.keymap.set("n", "<Leader>" .. k .. "", v )
 end
 
+
+vim.keymap.set("i", "]>", "<ESC>ll?,\\|(?<CR>lv/,\\|)/b-1<CR>dha ")
 vim.keymap.set("i", "ii", "<ESC>:normal l<CR>")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
