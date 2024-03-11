@@ -119,8 +119,16 @@ local leaderCommands = {
   {
     "n",
     "<leader>p",
+    ":Lazy<Enter>"
+  },
+-- Open Terminal on right side
+  {
+    "n",
+    "<leader>t",
     function ()
-      vim.cmd(":Lazy")
+      vim.cmd(":vsplit")
+      vim.cmd(":terminal")
+      vim.cmd(":startinsert")
     end,
   }
 }
